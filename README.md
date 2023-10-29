@@ -277,3 +277,78 @@ This script demonstrates a basic player queue system in a Roblox game, with the 
 
 *Note: Modify and integrate this code into your Roblox game as needed. Replace any placeholders and customize the teleportation logic to fit your game's design.*
 
+
+# Simple Guide: Using the Player Queue Module
+
+In this guide, we'll explain how to use the Player Queue module to create and manage a queue of players with basic print statements. This example does not include teleportation or other game-specific features.
+
+## Import the Player Queue Module
+
+First, you need to import the Player Queue module in your script. Make sure you've added the module to your project.
+
+```lua
+local __playerQueueModule__ = require(script.PlayerQueue)
+```
+
+## Create a New Queue
+
+To create a new player queue, call the `new` function of the module and provide a unique queue name.
+
+```lua
+local __queue__ = __playerQueueModule__.new("MyQueue")
+```
+
+## Add Players to the Queue
+
+You can enqueue players into the queue using the `enqueue` function. For example, to add two players to the queue:
+
+```lua
+__queue__:enqueue(player1)
+__queue__:enqueue(player2)
+```
+
+## Dequeue Players and Print the Queue
+
+To remove and retrieve the next player from the queue, use the `dequeue` function. You can also print the queue using the `printQueue` function.
+
+```lua
+local nextPlayer = __queue__:dequeue()
+print("Next Player: " .. nextPlayer.Name)
+__queue__:printQueue()
+```
+
+## Move Forward and Backward in the Queue
+
+You can move to the next player or the previous player in the queue using the `moveForward` and `moveBackward` functions, respectively. These functions take an optional boolean parameter to wrap around to the first player when reaching the end of the queue.
+
+```lua
+__queue__:moveForward() -- Move to the next player
+__queue__:moveBackward() -- Move to the previous player
+```
+
+## Check If the Queue Is Empty
+
+You can check if the queue is empty using the `isEmpty` function.
+
+```lua
+if __queue__:isEmpty() then
+    print("The queue is empty.")
+end
+```
+
+## Get the Number of Players in the Queue
+
+To get the number of players in the queue, use the `size` function.
+
+```lua
+local queueSize = __queue__:size()
+print("Number of players in the queue: " .. queueSize)
+```
+
+## Additional Functions
+
+The Player Queue module offers other functions, such as checking if a specific player exists in the queue, counting how many times a player exists in the queue, and getting the index of a player in the queue. These functions can be useful in more advanced scenarios.
+
+That's it! You've learned how to create a player queue and perform basic queue management using the Player Queue module functions. You can use these functions to manage player order in your Roblox game or similar projects.
+
+*Note: Customize and integrate these functions as needed for your specific game or project.*
